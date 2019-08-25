@@ -11,6 +11,8 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +31,19 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        TextView result = findViewById(R.id.result);
+        Button calculate = findViewById(R.id.button2);
+        calculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "100%", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                result.setText("110%");
+            }
+
+        });
+
+
     }
 
     @Override
