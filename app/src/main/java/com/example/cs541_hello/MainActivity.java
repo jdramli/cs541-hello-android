@@ -51,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
                 bill = Double.valueOf(c);
                 //System.out.println((Type) entry.getText());
                 current_tip = bill * 0.20;
-                Snackbar.make(view, Double.toString(current_tip), Snackbar.LENGTH_LONG)
+                String printable_tip = Double.toString(current_tip);
+                Snackbar.make(view, printable_tip, Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
 
