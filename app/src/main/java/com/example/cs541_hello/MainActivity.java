@@ -8,13 +8,17 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.text.Editable;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.lang.reflect.Type;
+
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +35,24 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        TextView result = findViewById(R.id.result);
+        final TextView result = findViewById(R.id.result);
+        final TextView entry = findViewById(R.id.input);
         Button calculate = findViewById(R.id.button2);
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "100%", Snackbar.LENGTH_LONG)
+                //entry.getText();
+                //result.setText(Integer.toString(current_tip));
+                //System.out.println(result);
+                double current_tip = 0;
+                double bill = 0;
+                CharSequence temp = entry.getText();
+                String c = temp.toString();
+                bill = Double.valueOf(c);
+                //System.out.println((Type) entry.getText());
+                current_tip = bill * 0.20;
+                Snackbar.make(view, Double.toString(current_tip), Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                result.setText("110%");
             }
 
         });
